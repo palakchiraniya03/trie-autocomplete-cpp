@@ -1,5 +1,6 @@
 #include <iostream>
 #include<vector>
+#include<string>
 using namespace std;
 
 class TrieNode{
@@ -36,7 +37,7 @@ class Trie{
     curr->isEnd=true;
   }
 
-  void dfs(TrieNode* node,string prefix,vector<string>&a result){
+  void dfs(TrieNode* node,string prefix,vector<string>& result){
     if (node->isEnd){
       result.push_back(prefix);
     }
@@ -72,9 +73,15 @@ int main(){
   trie.insert("app");
   trie.insert("application");
   trie.insert("banana");
-  vector<string> words=trie.autocomplete("app");
 
-  for(string w:words){
+  string prefix;
+  cout<<"enter a letter or a bunch of letters: ";
+  cin>>prefix;
+
+  vector<string> results=trie.autocomplete(prefix);
+
+  cout<<"some suggestions are: ";
+  for(string w: results){
     cout<<w<<endl;
   }
   return 0;
