@@ -25,7 +25,7 @@ class Trie{
   void insert(string word){
     TrieNode* curr=root;
     for(char c:word){
-      int index=c-'a'
+      int index=c-'a';
 
       if(curr->children[index]==NULL){
         curr->children[index]=new TrieNode();
